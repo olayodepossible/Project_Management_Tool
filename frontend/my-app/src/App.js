@@ -15,7 +15,7 @@ function App() {
         <div className="App">
           <Header />
 
-          <Route exact path="/dashboard" component={DashBoard} />
+          <DashBoard />
           <Route exact path="/addProject" component={AddProject} />
         </div>
       </Router>

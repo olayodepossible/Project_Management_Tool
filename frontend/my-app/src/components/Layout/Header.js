@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+/* import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logout } from "../../actions/securityActions";
+import { logout } from "../../actions/securityActions"; */
 
 class Header extends Component {
-  logout() {
+  /* logout() {
     this.props.logout();
     window.location.href = "/";
-  }
+  } */
   render() {
-    const { validToken, user } = this.props.security;
+    // const { validToken, user } = this.props.security;
 
-    const userIsAuthenticated = (
+    /* const userIsAuthenticated = (
       <div className="collapse navbar-collapse" id="mobile-nav">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -33,7 +33,7 @@ class Header extends Component {
             <Link
               className="nav-link"
               to="/logout"
-              onClick={this.logout.bind(this)}
+              //   onClick={this.logout.bind(this)}
             >
               Logout
             </Link>
@@ -59,14 +59,14 @@ class Header extends Component {
       </div>
     );
 
-    let headerLinks;
+    /* let headerLinks;
 
     if (validToken && user) {
       headerLinks = userIsAuthenticated;
     } else {
       headerLinks = userIsNotAuthenticated;
-    }
-
+    } 
+ */
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
         <div className="container">
@@ -81,20 +81,19 @@ class Header extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          {headerLinks}
         </div>
       </nav>
     );
   }
 }
-
-Header.propTypes = {
+/* {headerLinks} */
+/* Header.propTypes = {
   logout: PropTypes.func.isRequired,
   security: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   security: state.security,
-});
+}); */
 
-export default connect(mapStateToProps, { logout })(Header);
+export default Header; //connect(mapStateToProps, { logout })
