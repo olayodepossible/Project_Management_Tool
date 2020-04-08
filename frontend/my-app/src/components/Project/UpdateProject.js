@@ -1,5 +1,5 @@
-/* import React, { Component } from "react";
-import { getProject, createProject } from "../../actions/projectActions";
+import React, { Component } from "react";
+import { getProject, createProject } from "../../actions/ProjectActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
@@ -50,12 +50,12 @@ class UpdateProject extends Component {
     this.props.getProject(id, this.props.history);
   }
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
-  onSubmit(e) {
-    e.preventDefault();
+  onSubmit(event) {
+    event.preventDefault();
 
     const updateProject = {
       id: this.state.id,
@@ -168,4 +168,3 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, { getProject, createProject })(
   UpdateProject
 );
- */
