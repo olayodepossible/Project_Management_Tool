@@ -6,6 +6,7 @@ import { getProjects } from "../actions/ProjectActions";
 import PropTypes from "prop-types";
 
 class DashBoard extends Component {
+  //Life cycle Hook
   componentDidMount() {
     this.props.getProjects();
   }
@@ -41,7 +42,6 @@ DashBoard.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  Project: state.Project,
+  project: state.project,
 });
-
 export default connect(mapStateToProps, { getProjects })(DashBoard);

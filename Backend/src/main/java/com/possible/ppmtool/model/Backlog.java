@@ -1,0 +1,44 @@
+package com.possible.ppmtool.model;
+
+import javax.persistence.*;
+
+@Entity
+public class Backlog {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Integer PTSequence = 0;
+    private String projectIdentifier;
+
+    //@OneToOne
+
+    //@OneToMany
+
+
+    public Backlog() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getPTSequence() {
+        return PTSequence;
+    }
+
+    public void setPTSequence(Integer PTSequence) {
+        this.PTSequence = PTSequence;
+    }
+
+    public String getProjectIdentifier() {
+        return projectIdentifier;
+    }
+
+    public void setProjectIdentifier(String projectIdentifier) {
+        this.projectIdentifier = projectIdentifier;
+    }
+}

@@ -11,17 +11,17 @@ img {
 }
 
 .list-group-item.delete:hover {
-  cursor: -webkit-grab;
+  cursor: pointer;
   background-color: pink;
 }
 
 .list-group-item.update:hover {
-  cursor: -webkit-grab;
+  cursor: pointer;
   background-color: gainsboro;
 }
 
 .list-group-item.board:hover {
-  cursor: -webkit-grab;
+  cursor: pointer;
   background-color: gainsboro;
 }
 

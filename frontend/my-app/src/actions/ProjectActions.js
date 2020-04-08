@@ -1,14 +1,14 @@
 import axios from "axios";
-import { GET_ERRORS, GET_PROJECTS, GET_PROJECT } from "./types"; // DELETE_PROJECT
+import { GET_ERRORS, GET_PROJECTS, GET_PROJECT, DELETE_PROJECT } from "./types";
 
 export const createProject = (project, history) => async (dispatch) => {
   try {
-    const res = await axios.post("/api/project/saveProject", project);
+    await axios.post("/api/project/saveProject", project);
     history.push("/dashboard");
-    // dispatch({
-    //   type: GET_ERRORS,
-    //   payload: {},
-    // });
+    dispatch({
+      type: GET_ERRORS,
+      payload: {},
+    });
   } catch (err) {
     dispatch({
       type: GET_ERRORS,
@@ -36,7 +36,7 @@ export const getProject = (id, history) => async (dispatch) => {
     history.push("/dashboard");
   }
 };
-/*
+
 export const deleteProject = (id) => async (dispatch) => {
   if (
     window.confirm(
@@ -48,5 +48,5 @@ export const deleteProject = (id) => async (dispatch) => {
       type: DELETE_PROJECT,
       payload: id,
     });
-  } 
- }; */
+  }
+};
