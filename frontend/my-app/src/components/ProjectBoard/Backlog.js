@@ -3,6 +3,12 @@ import ProjectTask from "./ProjectTask/ProjectTask";
 
 class Backlog extends Component {
   render() {
+    const { projectTaskProp } = this.props;
+
+    const tasks = projectTaskProp.map((projectTask) => (
+      <ProjectTask key={projectTask.id} project_TaskProp2={projectTask} />
+    ));
+
     return (
       <div className="container">
         <div className="row">
@@ -12,8 +18,8 @@ class Backlog extends Component {
                 <h3>TO DO</h3>
               </div>
             </div>
-
-            <ProjectTask />
+            {tasks}
+            {}
           </div>
           <div className="col-md-4">
             <div className="card text-center mb-2">
