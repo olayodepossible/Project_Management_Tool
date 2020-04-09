@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 import errorReducer from "./errorReducer";
 import projectReducer from "./projectReducer";
+
+import BackLogReducer from "./BackLogReducer";
 /*
-import backlogReducer from "./backlogReducer";
 import securityReducer from "./securityReducer";  */
 
 export default combineReducers({
@@ -10,7 +11,7 @@ export default combineReducers({
 
   project: projectReducer,
 
+  backlog: BackLogReducer,
   /*
-   backlog: backlogReducer,
   security: securityReducer, */
 });
