@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BacklogRepository  extends JpaRepository<Backlog, Long> {
+
+    Backlog findByProjectIdentifier(String identifier);
 }
+

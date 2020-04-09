@@ -1,7 +1,9 @@
 package com.possible.ppmtool.services;
 
 import com.possible.ppmtool.exceptions.ProjectIdException;
+import com.possible.ppmtool.model.Backlog;
 import com.possible.ppmtool.model.Project;
+import com.possible.ppmtool.repositories.BacklogRepository;
 import com.possible.ppmtool.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +14,24 @@ public class ProjectService {
     @Autowired
     private ProjectRepository projectRepository;
 
+    @Autowired
+    private BacklogRepository backlogRepository;
+
     public Project saveOrUpdate(Project project){
+         String projectIdentifier = project.getProjectIdentifier().toUpperCase();
         try{
-            project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
+            project.setProjectIdentifier(projectIdentifier);
+             //To save as soon as Parent is been saved
+            if(project.getId() == null){
+                Backlog backlog = new Backlog();
+                project.setBacklog(backlog);
+                backlog.setProject(project);
+                backlog.setProjectIdentifier(projectIdentifier);
+            }
+            // To avoid setting child enetity to null whenever we update the parent
+            else {
+                project.setBacklog(backlogRepository.findByProjectIdentifier(projectIdentifier));
+            }
             return projectRepository.save(project);
 
         }catch (Exception ex){
