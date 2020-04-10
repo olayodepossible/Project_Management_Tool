@@ -47,13 +47,13 @@ public class BackLogController {
         return new ResponseEntity<List<ProjectTask>>(projectTasks, HttpStatus.OK) ;
     }
 
-    @GetMapping("/backlog_id/pt_id")
+    @GetMapping("/{backlog_id}/{pt_id}")
     public ResponseEntity<?> getProjectTask(@PathVariable String backlog_id, @PathVariable String pt_id){
         ProjectTask projectTask = projectTaskService.findPTByProjectSequence(backlog_id, pt_id);
         return new ResponseEntity<ProjectTask>(projectTask, HttpStatus.OK);
     }
 
-    @PatchMapping("/backlog_id/pt_id")
+    @PatchMapping("/{backlog_id}/{pt_id}")
     public ResponseEntity<?> updateProjectTask(@Valid @RequestBody ProjectTask projectTask, BindingResult result, @PathVariable String backlog_id, @PathVariable String pt_id){
 
         ResponseEntity<?> errorMap = validationErrorService.MapValidationError(result);
@@ -65,7 +65,7 @@ public class BackLogController {
     }
 
 
-    @DeleteMapping("/backlog_id/pt_id")
+    @DeleteMapping("/{backlog_id}/{pt_id}")
     public ResponseEntity<?> deleteProjectTask(@PathVariable String backlog_id, @PathVariable String pt_id) {
         projectTaskService.deletePTBySequence(backlog_id, pt_id);
 

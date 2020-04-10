@@ -31,7 +31,11 @@ class UpdateProjectTask extends Component {
 
   componentDidMount() {
     const { backlog_id, pt_id } = this.props.match.params;
-    this.props.getProjectTask(backlog_id, pt_id, this.history);
+    console.log(backlog_id);
+    console.log(pt_id);
+    console.log(this.props.project_task);
+
+    this.props.getProjectTask(backlog_id, pt_id, this.props.history);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -81,13 +85,16 @@ class UpdateProjectTask extends Component {
       create_At: this.state.create_At,
     };
 
-    this.props.updateProjectTask(
-      this.state.projectIdentifier,
-      this.state.projectSequence,
-      UpdateProjectTask,
-      this.state.history
-    );
+    console.log(UpdateProjectTask);
+
+    // this.props.updateProjectTask(
+    //   this.state.projectIdentifier,
+    //   this.state.projectSequence,
+    //   UpdateProjectTask,
+    //   this.state.history
+    // );
   }
+
   render() {
     const { errors } = this.state;
 
@@ -102,9 +109,9 @@ class UpdateProjectTask extends Component {
               >
                 Back to Project Board
               </Link>
-              <h4 className="display-4 text-center">Add Project Task</h4>
+              <h4 className="display-4 text-center">Update Project Task</h4>
               <p className="lead text-center">
-                Project Name: {this.state.projectIdentifier} + Project Task ID:{" "}
+                Project Name: {this.state.projectIdentifier} + Project Task ID:
                 {this.state.projectSequence}
               </p>
               <form onSubmit={this.onSubmit}>

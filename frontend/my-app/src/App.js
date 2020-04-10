@@ -18,7 +18,6 @@ function App() {
       <Router>
         <div className="App">
           <Header />
-
           <Route exact path="/dashboard" component={DashBoard} />
           <Route exact path="/addProject" component={AddProject} />
           <Route exact path="/updateProject/:id" component={UpdateProject} />

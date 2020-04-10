@@ -52,12 +52,12 @@ public class ProjectTaskService {
 
     public ProjectTask findPTByProjectSequence(String backlog_id, String pt_Id){
        Backlog backlog = backlogRepository.findByProjectIdentifier(backlog_id);
-       ProjectTask projectTask = projectTaskRepository.findByProjectSequence(pt_Id);
 
         if(backlog == null){
             throw new ProjectNotFoundException("Project with ID: '"+backlog_id+"' does not exit");
         }
 
+       ProjectTask projectTask = projectTaskRepository.findByProjectSequence(pt_Id);
         if(projectTask == null){
             throw new ProjectNotFoundException("Project Task with ID: '"+pt_Id+"' not found");
         }
