@@ -9,6 +9,27 @@ class Backlog extends Component {
       <ProjectTask key={projectTask.id} project_TaskProp2={projectTask} />
     ));
 
+    let todoItems = [];
+    let inProgressItems = [];
+    let doneItems = [];
+
+    for (let i = 0; i < tasks.length; i++) {
+      const element = tasks[i];
+      console.log(element);
+
+      if (tasks[i].props.project_TaskProp2.status === "TO_DO") {
+        todoItems.push(tasks[i]);
+      }
+
+      if (tasks[i].props.project_TaskProp2.status === "IN_PROGRESS") {
+        inProgressItems.push(tasks[i]);
+      }
+
+      if (tasks[i].props.project_TaskProp2.status === "DONE") {
+        doneItems.push(tasks[i]);
+      }
+    }
+
     return (
       <div className="container">
         <div className="row">
@@ -18,8 +39,7 @@ class Backlog extends Component {
                 <h3>TO DO</h3>
               </div>
             </div>
-            {tasks}
-            {}
+            {todoItems}
           </div>
           <div className="col-md-4">
             <div className="card text-center mb-2">
@@ -27,10 +47,7 @@ class Backlog extends Component {
                 <h3>In Progress</h3>
               </div>
             </div>
-            {
-              //<!-- SAMPLE PROJECT TASK STARTS HERE -->
-              //<!-- SAMPLE PROJECT TASK ENDS HERE -->
-            }
+            {inProgressItems}
           </div>
           <div className="col-md-4">
             <div className="card text-center mb-2">
@@ -38,10 +55,7 @@ class Backlog extends Component {
                 <h3>Done</h3>
               </div>
             </div>
-            {
-              // <!-- SAMPLE PROJECT TASK STARTS HERE -->
-              //<!-- SAMPLE PROJECT TASK ENDS HERE -->
-            }
+            {doneItems}
           </div>
         </div>
       </div>

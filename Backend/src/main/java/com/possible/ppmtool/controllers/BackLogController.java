@@ -42,7 +42,7 @@ public class BackLogController {
         List<ProjectTask> projectTasks =  projectTaskService.findBacklogById(backlog_id);
 
         if(projectTasks.size() == 0){
-            throw new ProjectNotFoundException("Backlog not found for this Project");
+            throw new ProjectNotFoundException("Project with ID '"+backlog_id+"' not found for this Project");
         };
         return new ResponseEntity<List<ProjectTask>>(projectTasks, HttpStatus.OK) ;
     }
