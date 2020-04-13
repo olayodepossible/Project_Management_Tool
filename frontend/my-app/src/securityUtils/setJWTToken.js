@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const setJWTToken = (token) => {
+const setJwtToken = (token) => {
   if (token) {
     axios.defaults.headers.common["Authorization"] = token;
   } else {
@@ -8,4 +8,4 @@ const setJWTToken = (token) => {
   }
 };
 
-export default setJWTToken;
+export default setJwtToken;

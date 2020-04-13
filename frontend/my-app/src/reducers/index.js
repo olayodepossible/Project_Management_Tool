@@ -4,8 +4,6 @@ import projectReducer from "./projectReducer";
 import securityReducer from "./securityReducer";
 
 import BackLogReducer from "./BackLogReducer";
-/*
-import securityReducer from "./securityReducer";  */
 
 export default combineReducers({
   errors: errorReducer,
@@ -13,7 +11,6 @@ export default combineReducers({
   project: projectReducer,
 
   backlog: BackLogReducer,
+
   security: securityReducer,
-  /*
-  security: securityReducer, */
 });

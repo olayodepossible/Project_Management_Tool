@@ -1,6 +1,6 @@
 import axios from "axios";
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
-import setJWTToken from "../securityUtils/setJWTToken";
+import setJwtToken from "../securityUtils/setJWTToken";
 import jwt_decode from "jwt-decode";
 
 //Coming from the form
@@ -27,7 +27,7 @@ export const login = (LoginRequest) => async (dispatch) => {
     const { token } = response.data;
     //store the token in the localStorage
     localStorage.setItem("jwtToken", token);
-    setJWTToken(token);
+    setJwtToken(token);
     const decoded = jwt_decode(token);
 
     dispatch({
@@ -40,4 +40,13 @@ export const login = (LoginRequest) => async (dispatch) => {
       payload: error.response.data,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  localStorage.removeItem("jwtToken");
+  setJwtToken(false);
+  dispatch({
+    type: GET_ERRORS,
+    payload: {},
+  });
 };
